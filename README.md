@@ -1,0 +1,1 @@
+This will be an incredibly inelegant, it will be my first time trying to use flake-parts... Also shamelessly copying from Doc-Steve.
