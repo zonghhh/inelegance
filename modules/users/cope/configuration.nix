@@ -1,9 +1,3 @@
-# modules/users/cope/configuration.nix
-#
-# Defines the cope-user NixOS module: creates the system user account
-# and links the home-manager configuration.
-# Keyed as "cope-user" (not "cope") to avoid colliding with the host
-# module also keyed as "cope" in flake.modules.nixos.
 { inputs, ... }: {
   flake.modules.nixos.cope-user = { config, ... }: {
     users.users.${config.var.username} = {

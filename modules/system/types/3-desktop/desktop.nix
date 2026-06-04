@@ -1,8 +1,3 @@
-# modules/system/types/3-desktop/desktop.nix
-#
-# Builds on system-default with everything a Wayland desktop needs at the
-# system level: Hyprland, pipewire, portals, fonts, polkit.
-# Per the guide's naming convention, file is named after the feature it defines.
 { inputs, ... }: {
   flake.modules.nixos.system-desktop = { pkgs, ... }: {
     imports = with inputs.self.modules.nixos; [

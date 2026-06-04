@@ -1,8 +1,3 @@
-# modules/hosts/cope/hardware.nix
-#
-# Hardware-specific NixOS settings for this machine.
-# nixos-hardware external modules are imported here since wrapping them
-# as a feature in modules/ is the correct Dendritic approach for external code.
 { inputs, ... }: {
   flake.modules.nixos.cope = {
     imports = [

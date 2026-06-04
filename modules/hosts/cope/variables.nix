@@ -1,7 +1,3 @@
-# modules/hosts/cope/variables.nix
-#
-# Sets the `var` option defined in system/types/1-minimal.
-# Contributes to flake.modules.nixos.cope alongside all other host files.
 { ... }: {
   flake.modules.nixos.cope = { ... }: {
     var = {
