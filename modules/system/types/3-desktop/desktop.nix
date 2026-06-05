@@ -6,16 +6,16 @@
 
     security.rtkit.enable = true;
     services.pipewire = {
-      enable            = true;
-      alsa.enable       = true;
+      enable = true;
+      alsa.enable = true;
       alsa.support32Bit = true;
-      pulse.enable      = true;
-      jack.enable       = true;
+      pulse.enable = true;
+      jack.enable = true;
     };
 
     xdg.portal = {
-      enable        = true;
-      extraPortals  = [ pkgs.xdg-desktop-portal-gtk ];
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config.common.default = "*";
     };
 
@@ -30,13 +30,18 @@
       ];
     };
 
-    services.dbus.enable   = true;
+    services.dbus.enable = true;
     security.polkit.enable = true;
 
     environment = {
-      systemPackages   = with pkgs; [ brightnessctl playerctl wl-clipboard libnotify ];
+      systemPackages = with pkgs; [
+        brightnessctl
+        playerctl
+        wl-clipboard
+        libnotify
+      ];
       sessionVariables = {
-        NIXOS_OZONE_WL   = "1";
+        NIXOS_OZONE_WL = "1";
         XDG_SESSION_TYPE = "wayland";
       };
     };

@@ -1,10 +1,9 @@
 {
   description = "\"Elegance is more important than suffering. That's his design\". Anyways this is going to be incredibly inelegant...";
-  outputs = inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
-    nixpkgs.url     = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
@@ -14,7 +13,7 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    hyprland.url       = "github:hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland?submodules=1";
 
     stylix.url = "github:danth/stylix";
     caelestia-shell = {
