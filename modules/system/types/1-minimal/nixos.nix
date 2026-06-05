@@ -1,13 +1,7 @@
-# modules/system/types/1-minimal/nixos.nix
-#
-# The absolute baseline every NixOS host needs.
-# Defines the `var` option so host variables.nix files can set it.
-# Sets nix daemon, locale, boot, networking, base user, essential packages.
 { ... }: {
   flake.modules.nixos.system-minimal = { config, lib, pkgs, ... }: {
 
     options.var = {
-      username       = lib.mkOption { type = lib.types.str; };
       hostname       = lib.mkOption { type = lib.types.str; };
       timezone       = lib.mkOption { type = lib.types.str; default = "UTC"; };
       locale         = lib.mkOption { type = lib.types.str; default = "en_US.UTF-8"; };
@@ -41,12 +35,6 @@
         hostName              = config.var.hostname;
         networkmanager.enable = true;
         firewall.enable       = true;
-      };
-
-      users.users.${config.var.username} = {
-        isNormalUser    = true;
-        extraGroups     = [ "wheel" "networkmanager" "video" "audio" "input" ];
-        initialPassword = "changeme"; # run passwd after first boot
       };
 
       security.sudo.wheelNeedsPassword = false;

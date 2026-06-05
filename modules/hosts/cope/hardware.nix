@@ -5,7 +5,6 @@
       inputs.nixos-hardware.nixosModules.common-gpu-amd
     ];
 
-    # Ensure the AMD GPU driver is loaded early
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     hardware.graphics.enable = true;
