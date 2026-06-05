@@ -16,7 +16,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland.url       = "github:hyprwm/Hyprland?submodules=1";
 
-    # Ready for when you bring these modules over
     stylix.url = "github:danth/stylix";
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
