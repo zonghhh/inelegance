@@ -19,9 +19,7 @@ in
   flake.modules.nixos.zh =
     { pkgs, ... }:
     {
-      imports = with inputs.self.modules.nixos; [
-        shell
-      ];
+      programs.fish.enable = true;
 
       users.users.${username} = {
         isNormalUser = true;
