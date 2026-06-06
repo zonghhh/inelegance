@@ -10,7 +10,7 @@ Folder naming: `[N]` NixOS, `[H]` home-manager, `[NH]` both.
 
 ## New host needs
 
-system-* · `var.{hostname,timezone,locale,keyboardLayout}` · hardware.nix + hardware-configuration.nix · a user · a bootloader.
+system-* · `var.{hostname,timezone,locale,keyboardLayout}` · hardware.nix + hardware-configuration.nix · a user · a bootloader · DE etc.
 
 ## Hardware-specific (not type-agnostic, import per-host)
 

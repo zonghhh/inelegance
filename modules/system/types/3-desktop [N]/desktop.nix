@@ -1,49 +1,34 @@
 { inputs, ... }: {
-  flake.modules.nixos.system-desktop = { pkgs, ... }: {
-    imports = with inputs.self.modules.nixos; [
-      system-default
-    ];
-
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      config.common.default = "*";
-    };
-
-    fonts = {
-      enableDefaultPackages = true;
-      packages = with pkgs; [
-        noto-fonts
-        noto-fonts-cjk-sans
-        noto-fonts-color-emoji
-        nerd-fonts.jetbrains-mono
-        nerd-fonts.symbols-only
+  flake.modules.nixos.system-desktop =
+    { pkgs, ... }:
+    {
+      imports = with inputs.self.modules.nixos; [
+        system-default
+        audio
+        fonts
       ];
-    };
 
-    services.dbus.enable = true;
-    security.polkit.enable = true;
+      # Core wayland desktop plumbing.
+      xdg.portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+        config.common.default = "*";
+      };
 
-    environment = {
-      systemPackages = with pkgs; [
-        brightnessctl
-        playerctl
-        wl-clipboard
-        libnotify
-      ];
-      sessionVariables = {
-        NIXOS_OZONE_WL = "1";
-        XDG_SESSION_TYPE = "wayland";
+      services.dbus.enable = true;
+      security.polkit.enable = true;
+
+      environment = {
+        systemPackages = with pkgs; [
+          brightnessctl
+          playerctl
+          wl-clipboard
+          libnotify
+        ];
+        sessionVariables = {
+          NIXOS_OZONE_WL = "1";
+          XDG_SESSION_TYPE = "wayland";
+        };
       };
     };
-  };
 }

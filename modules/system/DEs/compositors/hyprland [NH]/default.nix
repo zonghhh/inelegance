@@ -1,7 +1,8 @@
 { inputs, ... }: {
-  flake.modules.nixos.system-hyprland = { pkgs, ... }: {
+  # A compositor aspect — orthogonal to system-desktop. A desktop host composes
+  # both (see hosts/cope). Bundles its greeter (session interface) and shell.
+  flake.modules.nixos.hyprland = { pkgs, ... }: {
     imports = with inputs.self.modules.nixos; [
-      system-desktop
       session
       greeter
     ];
@@ -24,7 +25,10 @@
     # Tell the bundled greeter how to launch this compositor.
     var.sessionCommand = "uwsm start hyprland-uwsm.desktop";
 
-    home-manager.sharedModules = [ inputs.self.modules.homeManager.hyprland ];
+    home-manager.sharedModules = with inputs.self.modules.homeManager; [
+      hyprland
+      caelestia
+    ];
   };
 
   flake.modules.homeManager.hyprland.wayland.windowManager.hyprland = {
