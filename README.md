@@ -1,4 +1,4 @@
-This will be incredibly inelegant, i'm rebuilding my entire nixos configuration using flake-parts... Heavy inspiration/copying/fork from/of Doc-Steve and Nixy.
+This will be incredibly inelegant, i'm rebuilding my entire nixos configuration using flake-parts... heavy inspiration/copying/fork from/of Doc-Steve and Nixy.
 
 Folder naming: `[N]` NixOS, `[H]` home-manager, `[NH]` both.
 
@@ -6,11 +6,11 @@ Folder naming: `[N]` NixOS, `[H]` home-manager, `[NH]` both.
 
 - `system-minimal` — base. headless.
 - `system-default` — minimal + home-manager + firmware.
-- `system-desktop` — default + audio/portals/fonts/polkit. Pulled in by a compositor;
+- `system-desktop` — default + audio/portals/fonts/polkit
 
 ## New host needs
 
-system-* · `var.{hostname,timezone,locale,keyboardLayout}` · hardware.nix + hardware-configuration.nix · a user · a bootloader · DE etc.
+system-*, `var.{hostname,timezone,locale,keyboardLayout}`, hardware.nix + hardware-configuration.nix, a user, a bootloader, DE if desktop.
 
 ## Hardware-specific (not type-agnostic, import per-host)
 
