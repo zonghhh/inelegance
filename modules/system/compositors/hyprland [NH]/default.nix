@@ -2,6 +2,8 @@
   flake.modules.nixos.system-hyprland = { pkgs, ... }: {
     imports = with inputs.self.modules.nixos; [
       system-desktop
+      session
+      greeter
     ];
 
     nix.settings = {
@@ -18,6 +20,9 @@
     };
 
     programs.uwsm.enable = true;
+
+    # Tell the bundled greeter how to launch this compositor.
+    var.sessionCommand = "uwsm start hyprland-uwsm.desktop";
 
     home-manager.sharedModules = [ inputs.self.modules.homeManager.hyprland ];
   };
