@@ -3,6 +3,10 @@
   flake.modules.homeManager.hyprland.wayland.windowManager.hyprland.extraConfig = /* lua */ ''
     local mod = "SUPER"
 
+    -- BINDS --
     hl.bind(mod .. " + Return", hl.dsp.exec_cmd("ghostty"))
+
+    -- MONITORS --
+    hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
   '';
 }
