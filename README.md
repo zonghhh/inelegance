@@ -18,3 +18,14 @@ system-* · `var.{hostname,timezone,locale,keyboardLayout}` · hardware.nix + ha
 - `bluetooth` — needs a BT adapter.
 
 `firmware` lives in `system-default` (applies to ~all real machines).
+
+## Usage
+if new inputs:
+```nix run .#write-flake```
+
+for update:
+
+```nix flake update```
+
+
+```sudo nixos-rebuild switch .#hostname```
