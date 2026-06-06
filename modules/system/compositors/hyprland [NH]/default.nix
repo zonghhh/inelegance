@@ -21,4 +21,11 @@
 
     home-manager.sharedModules = [ inputs.self.modules.homeManager.hyprland ];
   };
+
+  flake.modules.homeManager.hyprland.wayland.windowManager.hyprland = {
+    enable = true;
+    configType = "lua";
+    package = null;
+    portalPackage = null;
+  };
 }
