@@ -8,6 +8,5 @@
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     hardware.graphics.enable = true;
-    hardware.enableRedistributableFirmware = true;
   };
 }

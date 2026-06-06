@@ -48,11 +48,6 @@
         i18n.defaultLocale = config.var.locale;
         console.keyMap = config.var.keyboardLayout;
 
-        boot.loader = {
-          systemd-boot.enable = true;
-          efi.canTouchEfiVariables = true;
-        };
-
         networking = {
           hostName = config.var.hostname;
           networkmanager.enable = true;

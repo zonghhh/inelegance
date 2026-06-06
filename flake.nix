@@ -1,6 +1,5 @@
 {
   description = "\"Elegance is more important than suffering. That's his design\". Anyways this is going to be incredibly inelegant...";
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -25,4 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
