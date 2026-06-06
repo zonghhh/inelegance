@@ -7,7 +7,9 @@
   # flake.nix is generated from the distributed flake-file.inputs declarations
   # across the tree. Regenerate with: nix run .#write-flake
   flake-file.description = "\"Elegance is more important than suffering. That's his design\". Anyways this is going to be incredibly inelegant...";
-  flake-file.outputs = "dendritic";
+  flake-file.outputs = ''
+    inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules)
+  '';
 
   flake-file.inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
