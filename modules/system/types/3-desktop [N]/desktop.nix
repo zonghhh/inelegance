@@ -6,6 +6,7 @@
         system-default
         audio
         fonts
+        stylix
       ];
 
       # Core wayland desktop plumbing.
