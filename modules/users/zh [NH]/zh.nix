@@ -7,6 +7,7 @@ in
     imports = with inputs.self.modules.homeManager; [
       shell
       ghostty
+      nano
     ];
 
     home.username = username;
