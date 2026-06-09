@@ -20,11 +20,11 @@ in
   flake.modules.nixos.zh =
     { pkgs, ... }:
     {
-      programs.fish.enable = true;
+      programs.zsh.enable = true;
 
       users.users.${username} = {
         isNormalUser = true;
-        shell = pkgs.fish;
+        shell = pkgs.zsh;
         extraGroups = [
           "wheel"
           "networkmanager"
