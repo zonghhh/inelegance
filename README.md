@@ -28,4 +28,4 @@ for update:
 ```nix flake update```
 
 
-```sudo nixos-rebuild switch .#hostname```
+```sudo nixos-rebuild switch .#hostname --options cores 4 --option max-jobs 6 --option max-memory-size 8G```

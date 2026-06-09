@@ -1,10 +1,7 @@
 { ... }: {
   flake.modules.homeManager.nano = {
-    programs.nano = {
-      enable = true;
-      settings = {
-        tabsize = 2;
-      };
-    };
+    home.file.".config/nano/nanorc".text = ''
+      set tabsize 2
+    '';
   };
 }
