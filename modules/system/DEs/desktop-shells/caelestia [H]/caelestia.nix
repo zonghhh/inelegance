@@ -29,5 +29,20 @@
           };
         };
       };
+
+      # shell.json is managed by home-manager (read-only symlink) but caelestia
+      # needs to write to it at runtime: replace the symlink with a mutable copy.
+      # The stale .hm-backup must be removed before linkGeneration so HM can
+      # back up the runtime-modified shell.json without hitting a conflict.
+      home.activation.caelestiaCleanBackup = config.lib.dag.entryBefore [ "linkGeneration" ] ''
+        $DRY_RUN_CMD rm -f "$HOME/.config/caelestia/shell.json.backup"
+      '';
+      home.activation.caelestiaWritableConfig = config.lib.dag.entryAfter [ "linkGeneration" ] ''
+        if [ -L "$HOME/.config/caelestia/shell.json" ]; then
+          $DRY_RUN_CMD cp --remove-destination \
+            "$(readlink -f "$HOME/.config/caelestia/shell.json")" \
+            "$HOME/.config/caelestia/shell.json"
+        fi
+      '';
     };
 }

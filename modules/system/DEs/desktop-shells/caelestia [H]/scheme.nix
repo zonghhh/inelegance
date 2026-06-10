@@ -1,14 +1,19 @@
 { inputs, ... }: {
-  /* 
-  Bridges stylix -> caelestia colours.
-  
-  caelestia generates its shell palette with its CLI (`caelestia scheme set`)
-  build a patched CLI that ships a `custom/main/dark.txt` scheme whose colours are
-  mapped from stylix's base16 palette, then apply it at login.
-  We also disable the CLI's *external* app theming so stylix (not caelestia) owns GTK/Qt/terminal/etc.
+  /*
+    Bridges stylix -> caelestia colours.
+
+    caelestia generates its shell palette with its CLI (`caelestia scheme set`)
+    build a patched CLI that ships a `custom/main/dark.txt` scheme whose colours are
+    mapped from stylix's base16 palette, then apply it at login.
+    We also disable the CLI's *external* app theming so stylix (not caelestia) owns GTK/Qt/terminal/etc.
   */
   flake.modules.homeManager.caelestia =
-    { pkgs, config, lib, ... }:
+    {
+      pkgs,
+      config,
+      lib,
+      ...
+    }:
     let
       system = pkgs.stdenv.hostPlatform.system;
       colors = config.lib.stylix.colors;
@@ -116,13 +121,12 @@
         onSuccessContainer ${colors.base05}
       '';
 
-      themedCli =
-        inputs.caelestia-cli.packages.${system}.default.overrideAttrs (old: {
-          postUnpack = (old.postUnpack or "") + ''
-            mkdir -p $sourceRoot/src/caelestia/data/schemes/custom/main
-            cp ${customSchemeFile} $sourceRoot/src/caelestia/data/schemes/custom/main/dark.txt
-          '';
-        });
+      themedCli = inputs.caelestia-cli.packages.${system}.default.overrideAttrs (old: {
+        postUnpack = (old.postUnpack or "") + ''
+          mkdir -p $sourceRoot/src/caelestia/data/schemes/custom/main
+          cp ${customSchemeFile} $sourceRoot/src/caelestia/data/schemes/custom/main/dark.txt
+        '';
+      });
     in
     {
       programs.caelestia.cli = {

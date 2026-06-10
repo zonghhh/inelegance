@@ -10,7 +10,10 @@ Folder naming: `[N]` NixOS, `[H]` home-manager, `[NH]` both.
 
 ## New host needs
 
-system-*, `var.{hostname,timezone,locale,keyboardLayout}`, hardware.nix + hardware-configuration.nix, a user, a bootloader, DE if desktop.
+system-*, `var.{hostname,timezone,locale,keyboardLayout}`, hardware.nix + hardware-configuration.nix, a user, a bootloader, DE if desktop. <br>
+For laptop:<br>
+```services.upower.enable = true;```<br>
+```services.power-profiles-daemon.enable = true;```
 
 ## Hardware-specific (not type-agnostic, import per-host)
 
