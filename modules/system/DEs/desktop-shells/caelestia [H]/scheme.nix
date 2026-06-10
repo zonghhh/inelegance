@@ -150,7 +150,14 @@
         };
         Service = {
           Type = "oneshot";
-          ExecStart = "${themedCli}/bin/caelestia scheme set --name custom --flavour main --mode dark";
+          # `scheme set custom` no-ops when caelestia is already on "custom", so
+          # it won't re-read a freshly rebuilt custom file (leaving stale, e.g.
+          # greyscale, colours). Switch to another scheme first to force a real
+          # change, then back to custom. Mirrors the old config + Nixy.
+          ExecStart = [
+            "${themedCli}/bin/caelestia scheme set --name onedark"
+            "${themedCli}/bin/caelestia scheme set --name custom --flavour main --mode dark"
+          ];
         };
         Install.WantedBy = [ "graphical-session.target" ];
       };
