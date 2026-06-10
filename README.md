@@ -23,9 +23,6 @@ system-*, `var.{hostname,timezone,locale,keyboardLayout}`, hardware.nix + hardwa
 if new inputs:
 ```nix run .#write-flake```
 
-for update:
-
-```nix flake update```
-
-
-```sudo nixos-rebuild switch .#hostname --options cores 4 --option max-jobs 6 --option max-memory-size 8G```
+for update:<br>
+```nix flake update```<br>
+```sudo nixos-rebuild switch .#hostname -vL``` (-vL; verbose and print build logs)
