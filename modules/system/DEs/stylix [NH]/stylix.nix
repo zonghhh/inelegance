@@ -5,35 +5,34 @@
 
     stylix = {
       enable = true;
-      polarity = "light";
+      polarity = "dark";
 
       # wallpaper, colour scheme manually defined.
-      image = inputs.self + "/assets/wallpapers/wallpaper_girl.png";
+      image = inputs.self + "/assets/wallpapers/wallpaper_girl.jpg";
 
       # leave pre-login surfaces untouched: the boot console log lines and the tuigreet greeter both render with the Linux console palette.
       targets.console.enable = false;
 
-      # Sumi Ink Wash — derived from the attached ink-wash portrait (light theme)
+      # Sumi Ink Wash (Dark) — derived from the attached ink-wash portrait
       # See https://tinted-theming.github.io/tinted-gallery/ for more schemes
       base16Scheme = {
-        base00 = "EFEAD9"; # Default Background — warm rice-paper cream
-        base01 = "E7E1CE"; # Lighter Background (Used for status bars, line number and folding marks)
-        base02 = "D9D1BC"; # Selection Background
-        base03 = "A39A88"; # Comments, Invisibles, Line Highlighting
-        base04 = "6E655A"; # Dark Foreground (Used for status bars)
-        base05 = "3B362E"; # Default Foreground, Caret, Delimiters, Operators
-        base06 = "29251F"; # Light Foreground (Not often used)
-        base07 = "1A1712"; # Light Background (Not often used)
-        base08 = "B24A3E"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-        base09 = "AE7748"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url
-        base0A = "97792C"; # Classes, Markup Bold, Search Text Background
-        base0B = "5F7A4F"; # Strings, Inherited Class, Markup Code, Diff Inserted
-        base0C = "4C7C79"; # Support, Regular Expressions, Escape Characters, Markup Quotes
-        base0D = "3C5C86"; # Functions, Methods, Attribute IDs, Headings, Accent color
-        base0E = "79587F"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
-        base0F = "8A574A"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+        base00 = "1B1813"; # Default Background — deepest sumi ink
+        base01 = "232019"; # Lighter Background (Used for status bars, line number and folding marks)
+        base02 = "38332A"; # Selection Background
+        base03 = "6E655A"; # Comments, Invisibles, Line Highlighting
+        base04 = "A39A88"; # Dark Foreground (Used for status bars)
+        base05 = "D8D1BD"; # Default Foreground, Caret, Delimiters, Operators
+        base06 = "E7E1CE"; # Light Foreground (Not often used)
+        base07 = "EFEAD9"; # Light Background (Not often used)
+        base08 = "D9695B"; # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+        base09 = "D49A6A"; # Integers, Boolean, Constants, XML Attributes, Markup Link Url
+        base0A = "C7A94E"; # Classes, Markup Bold, Search Text Background
+        base0B = "8FAE76"; # Strings, Inherited Class, Markup Code, Diff Inserted
+        base0C = "6FA9A4"; # Support, Regular Expressions, Escape Characters, Markup Quotes
+        base0D = "7B9BC9"; # Functions, Methods, Attribute IDs, Headings, Accent color
+        base0E = "A98BAE"; # Keywords, Storage, Selector, Markup Italic, Diff Changed
+        base0F = "BC8270"; # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
       };
-
 
 
       # Fonts (applied system-wide + propagated to HM apps incl. caelestia).
