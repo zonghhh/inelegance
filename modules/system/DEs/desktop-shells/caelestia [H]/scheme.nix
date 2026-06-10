@@ -1,6 +1,6 @@
 { inputs, ... }: {
   /*
-    Bridges stylix -> caelestia colours.
+    bridges stylix -> caelestia colours.
 
     caelestia generates its shell palette with its CLI (`caelestia scheme set`)
     build a patched CLI that ships a `custom/main/dark.txt` scheme whose colours are
@@ -133,7 +133,7 @@
         # mkForce overrides the plain package set in caelestia.nix.
         package = lib.mkForce themedCli;
 
-        # Stylix already themes these; stop the CLI from overwriting them.
+        # stylix already themes these; stop the CLI from overwriting them.
         settings.theme = {
           enableGtk = false;
           enableQt = false;
@@ -141,7 +141,7 @@
         };
       };
 
-      # Apply the stylix-derived scheme each graphical login, so the shell stays in sync with the rest of the desktop's colours.
+      # apply the stylix-derived scheme each graphical login, so the shell stays in sync with the rest of the desktop's colours.
       systemd.user.services.caelestia-scheme = {
         Unit = {
           Description = "Apply stylix-derived caelestia colour scheme";
