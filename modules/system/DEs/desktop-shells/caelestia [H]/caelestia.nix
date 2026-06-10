@@ -1,6 +1,6 @@
 { inputs, ... }: {
   flake.modules.homeManager.caelestia =
-    { pkgs, config, ... }:
+    { pkgs, config, osConfig, ... }:
     let
       system = pkgs.stdenv.hostPlatform.system;
     in
@@ -10,7 +10,7 @@
       programs.caelestia = {
         enable = true;
         package = inputs.caelestia-shell.packages.${system}.default;
-        # Autostart as a user service bound to graphical-session.target (uwsm wires that target up for the hyprland session).
+        # autostart as a user service bound to graphical-session.target (uwsm wires that target up for the hyprland session).
         systemd.enable = true;
 
         cli = {
@@ -19,14 +19,17 @@
         };
 
         settings = {
-          # Stylix already renders the wallpaper (auto hyprpaper service)
+          # stylix already renders the wallpaper (auto hyprpaper service)
           background.enabled = false;
 
-          # Use stylix's fonts for the shell UI.
+          # use stylix's fonts for the shell UI.
           appearance.font.family = {
             sans = config.stylix.fonts.sansSerif.name;
             mono = config.stylix.fonts.monospace.name;
           };
+
+          # weather location comes from the host's var interface, osConfig allows reading of NixOS options directly within user configurations
+          services.weatherLocation = osConfig.var.weatherLocation;
         };
       };
 
@@ -42,6 +45,8 @@
           $DRY_RUN_CMD cp --remove-destination \
             "$(readlink -f "$HOME/.config/caelestia/shell.json")" \
             "$HOME/.config/caelestia/shell.json"
+          # Store files are mode 0444; make it writable so the shell can save.
+          $DRY_RUN_CMD chmod u+w "$HOME/.config/caelestia/shell.json"
         fi
       '';
     };

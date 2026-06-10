@@ -17,6 +17,11 @@
           type = lib.types.str;
           default = "us";
         };
+        weatherLocation = lib.mkOption {
+          type = lib.types.str;
+          default = "Singapore";
+          description = "City name for weather forecasts (e.g. 'Singapore' or 'London').";
+        };
       };
     };
 }

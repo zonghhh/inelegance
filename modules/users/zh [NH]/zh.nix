@@ -14,6 +14,10 @@ in
     home.homeDirectory = "/home/${username}";
     home.stateVersion = "25.11";
 
+    # Profile picture. ~/.face is the per-user avatar convention; caelestia (and
+    # other avatar-aware apps) read it from the logged-in user's home.
+    home.file.".face".source = inputs.self + "/assets/profile.jpg";
+
     programs.home-manager.enable = true;
   };
 

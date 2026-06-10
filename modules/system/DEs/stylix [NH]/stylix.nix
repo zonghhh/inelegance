@@ -8,7 +8,7 @@
       polarity = "dark";
 
       # auto generate colours from wallpaper
-      image = inputs.self + "/wallpapers/wallpaper_whale.png";
+      image = inputs.self + "/assets/wallpaper_whale.png";
 
       # Fonts (applied system-wide + propagated to HM apps incl. caelestia).
       fonts = {
