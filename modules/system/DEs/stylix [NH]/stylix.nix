@@ -14,6 +14,7 @@
       targets.console.enable = false;
 
       # Fonts (applied system-wide + propagated to HM apps incl. caelestia).
+      # TODO: find better way to get google fonts, as it stands it is around 2.7GB download.
       fonts = {
         monospace = {
           package = pkgs.google-fonts.override { fonts = [ "Cousine" ]; };
