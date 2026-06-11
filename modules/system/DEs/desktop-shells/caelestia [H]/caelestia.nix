@@ -13,10 +13,9 @@
         # autostart as a user service bound to graphical-session.target (uwsm wires that target up for the hyprland session).
         systemd.enable = true;
 
-        cli = {
-          enable = true;
-          package = inputs.caelestia-cli.packages.${system}.default;
-        };
+        # cli.package is set in scheme.nix (the themed override) so the option
+        # has a single owner — avoids a merge conflict and the mkForce it needs.
+        cli.enable = true;
 
         settings = {
           # stylix already renders the wallpaper (auto hyprpaper service)

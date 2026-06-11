@@ -3,15 +3,14 @@
     bridges stylix -> caelestia colours.
 
     caelestia generates its shell palette with its CLI (`caelestia scheme set`)
-    build a patched CLI that ships a `custom/main/dark.txt` scheme whose colours are
-    mapped from stylix's base16 palette, then apply it at login.
+    build a patched CLI that ships a content-named `<schemeName>/main/dark.txt`
+    scheme mapped from stylix's base16 palette, then apply it at login.
     We also disable the CLI's *external* app theming so stylix (not caelestia) owns GTK/Qt/terminal/etc.
   */
   flake.modules.homeManager.caelestia =
     {
       pkgs,
       config,
-      lib,
       ...
     }:
     let
@@ -121,17 +120,19 @@
         onSuccessContainer ${colors.base05}
       '';
 
+      # content-hashed so caelestia re-applies on palette change.
+      schemeName = "stylix-${builtins.substring 0 8 (builtins.hashString "sha256" (builtins.toJSON colors))}";
+
       themedCli = inputs.caelestia-cli.packages.${system}.default.overrideAttrs (old: {
         postUnpack = (old.postUnpack or "") + ''
-          mkdir -p $sourceRoot/src/caelestia/data/schemes/custom/main
-          cp ${customSchemeFile} $sourceRoot/src/caelestia/data/schemes/custom/main/dark.txt
+          mkdir -p $sourceRoot/src/caelestia/data/schemes/${schemeName}/main
+          cp ${customSchemeFile} $sourceRoot/src/caelestia/data/schemes/${schemeName}/main/dark.txt
         '';
       });
     in
     {
       programs.caelestia.cli = {
-        # mkForce overrides the plain package set in caelestia.nix.
-        package = lib.mkForce themedCli;
+        package = themedCli;
 
         # stylix already themes these; stop the CLI from overwriting them.
         settings.theme = {
@@ -150,14 +151,7 @@
         };
         Service = {
           Type = "oneshot";
-          # `scheme set custom` no-ops when caelestia is already on "custom", so
-          # it won't re-read a freshly rebuilt custom file (leaving stale, e.g.
-          # greyscale, colours). Switch to another scheme first to force a real
-          # change, then back to custom. Mirrors the old config + Nixy.
-          ExecStart = [
-            "${themedCli}/bin/caelestia scheme set --name onedark"
-            "${themedCli}/bin/caelestia scheme set --name custom --flavour main --mode dark"
-          ];
+          ExecStart = "${themedCli}/bin/caelestia scheme set --name ${schemeName} --flavour main --mode dark";
         };
         Install.WantedBy = [ "graphical-session.target" ];
       };
