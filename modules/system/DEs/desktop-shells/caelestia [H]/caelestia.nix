@@ -26,10 +26,14 @@
           # stylix already renders the wallpaper (auto hyprpaper service)
           background.enabled = false;
 
-          # use stylix's fonts for the shell UI.
-          appearance.font.family = {
-            sans = config.stylix.fonts.sansSerif.name;
-            mono = config.stylix.fonts.monospace.name;
+          # TODO: Schema changed from font.family.{sans,mono} to per-style families; see
+          # https://github.com/caelestia-dots/shell/commit/23c138e417d62d80141579b83440dca968ebbdd1
+          appearance.font = {
+            headline.family = config.stylix.fonts.sansSerif.name;
+            title.family = config.stylix.fonts.sansSerif.name;
+            body.family = config.stylix.fonts.sansSerif.name;
+            label.family = config.stylix.fonts.sansSerif.name;
+            mono.family = config.stylix.fonts.monospace.name;
           };
 
           # weather location comes from the host's var interface, osConfig allows reading of NixOS options directly within user configurations

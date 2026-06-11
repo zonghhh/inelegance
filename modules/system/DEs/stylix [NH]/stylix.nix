@@ -16,16 +16,16 @@
       # Fonts (applied system-wide + propagated to HM apps incl. caelestia).
       fonts = {
         monospace = {
-          package = pkgs.nerd-fonts.jetbrains-mono;
-          name = "JetBrainsMono Nerd Font";
+          package = pkgs.google-fonts.override { fonts = [ "Cousine" ]; };
+          name = "Cousine";
         };
         sansSerif = {
-          package = pkgs.noto-fonts;
-          name = "Noto Sans";
+          package = pkgs.google-fonts.override { fonts = [ "Arimo" ]; };
+          name = "Arimo";
         };
         serif = {
-          package = pkgs.noto-fonts;
-          name = "Noto Serif";
+          package = pkgs.google-fonts.override { fonts = [ "Tinos" ]; };
+          name = "Tinos";
         };
         emoji = {
           package = pkgs.noto-fonts-color-emoji;
