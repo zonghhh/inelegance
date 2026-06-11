@@ -14,7 +14,7 @@ in
     home.homeDirectory = "/home/${username}";
     home.stateVersion = "25.11";
 
-    # NOTE: profile picture. placed in ~/.face for caelestia to acces 
+    # NOTE: profile picture. placed in ~/.face for caelestia to acces
     home.file.".face".source = inputs.self + "/assets/profile.jpg";
 
     programs.home-manager.enable = true;

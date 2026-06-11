@@ -3,13 +3,10 @@
     { pkgs, ... }:
     {
       fonts = {
-        enableDefaultPackages = true;
+        # stylix handles the themed serif/sans/mono/emoji families
+        enableDefaultPackages = true; # TODO: check if this fallback is needed after stylix
         packages = with pkgs; [
-          noto-fonts
-          noto-fonts-cjk-sans
-          noto-fonts-color-emoji
-          nerd-fonts.jetbrains-mono
-          nerd-fonts.symbols-only
+          noto-fonts-cjk-sans # Chinese/Japanese/Korean
         ];
       };
     };

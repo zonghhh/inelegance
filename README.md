@@ -30,4 +30,6 @@ for update:<br>
 ```nix flake update```<br>
 ```sudo nixos-rebuild switch .#hostname -vL``` (-vL; verbose and print build logs)
 
+## Additional documenting
+(TODO:) to-do...yes
 (NOTE:) some things of note, yes i know it is a bad label...T_T

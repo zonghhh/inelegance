@@ -121,7 +121,9 @@
       '';
 
       # content-hashed so caelestia re-applies on palette change.
-      schemeName = "stylix-${builtins.substring 0 8 (builtins.hashString "sha256" (builtins.toJSON colors))}";
+      schemeName = "stylix-${
+        builtins.substring 0 8 (builtins.hashString "sha256" (builtins.toJSON colors))
+      }";
 
       themedCli = inputs.caelestia-cli.packages.${system}.default.overrideAttrs (old: {
         postUnpack = (old.postUnpack or "") + ''

@@ -1,6 +1,11 @@
 { inputs, ... }: {
   flake.modules.homeManager.caelestia =
-    { pkgs, config, osConfig, ... }:
+    {
+      pkgs,
+      config,
+      osConfig,
+      ...
+    }:
     let
       system = pkgs.stdenv.hostPlatform.system;
     in
