@@ -27,8 +27,15 @@
     hl.bind(mod .. " + Down", hl.dsp.focus({ direction = "down" }))
     hl.bind(mod .. " + Up", hl.dsp.focus({ direction = "up" }))
     hl.bind(mod .. " + Right", hl.dsp.focus({ direction = "right" }))
-    hl.bind(shiftMod .. " + J", hl.dsp.layout("removemaster")) -- Remove from master
-    hl.bind(shiftMod .. " + K", hl.dsp.layout("addmaster")) -- Add to master
+    hl.bind(shiftMod .. " + J", hl.dsp.layout("removemaster")) -- TOFIX: Remove from master
+    hl.bind(shiftMod .. " + K", hl.dsp.layout("addmaster")) -- TOFIX: Add to master
+
+    -- Workspaces --
+    hl.bind(mod .. " + Tab", hl.dsp.focus({ workspace = "e+1" }))
+    for i = 1, 9 do
+      hl.bind(mod .. " + code:1" .. (i - 1), hl.dsp.focus({ workspace = i })) -- Switch to workspace
+      hl.bind(shiftMod .. " + code:1" .. (i - 1), hl.dsp.window.move({ workspace = i })) -- Move window to workspace
+    end
 
     -- Utilities --
     hl.bind(shiftMod .. " + S", hl.dsp.global("caelestia:screenshotFreeze")) -- Capture region (freeze)
