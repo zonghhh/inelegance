@@ -61,7 +61,7 @@
         ["col.inactive_border"] = "rgba(00000000)",
       },
       decoration = {
-        rounding = 15,
+        rounding = 20,
         active_opacity = 1.0,
         inactive_opacity = 0.9,
       },
