@@ -52,10 +52,18 @@
 
 
     -- MONITORS --
-    hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+    hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })  -- TODO: this setting wld be better defined host level not here.
 
     -- MISC --
     hl.config({
+      general = {
+        border_size = 2,
+      },
+      decoration = {
+        rounding = 15,
+        active_opacity = 1.0,
+        inactive_opacity = 0.9,
+      },
       misc = {
         disable_hyprland_logo = true,
         disable_splash_rendering = true,
