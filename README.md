@@ -32,4 +32,5 @@ for update:<br>
 
 ## Additional documenting
 (TODO:) to-do...yes<br>
+(TOFIX:) i will fix it, someday...depends on if i really need it ahaha<br>
 (NOTE:) some things of note, yes i know it is a bad label...T_T
