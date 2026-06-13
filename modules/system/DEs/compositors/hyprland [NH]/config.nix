@@ -58,6 +58,7 @@
     hl.config({
       general = {
         border_size = 2,
+        ["col.inactive_border"] = "rgba(00000000)",
       },
       decoration = {
         rounding = 15,
