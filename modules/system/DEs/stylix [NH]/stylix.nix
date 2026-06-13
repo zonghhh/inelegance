@@ -10,8 +10,8 @@
       # wallpaper.
       image = inputs.self + "/assets/wallpapers/wallpaper_girl.jpg";
 
-      # leave pre-login surfaces untouched: the boot console log lines and the tuigreet greeter both render with the Linux console palette.
-      targets.console.enable = false;
+      targets.console.enable = false; # theming not applied to things like greeter and boot sequence?
+      opacity.terminal = 0.80; # terminal translucency
 
       # Fonts (applied system-wide + propagated to HM apps incl. caelestia).
       # TODO: find better way to get google fonts, as it stands it is around 2.7GB download.
