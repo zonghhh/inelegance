@@ -37,7 +37,10 @@
           };
 
           # weather location comes from the host's var interface, osConfig allows reading of NixOS options directly within user configurations
-          services.weatherLocation = osConfig.var.weatherLocation;
+          services{
+            weatherLocation = osConfig.var.weatherLocation;
+            useFahrenheit = false;
+          };
         };
       };
 

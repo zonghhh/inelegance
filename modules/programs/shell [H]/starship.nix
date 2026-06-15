@@ -13,12 +13,17 @@
           format = lib.concatStrings [
             "$nix_shell"
             "$hostname"
+            " • "
             "$directory"
             "$git_branch"
             "$git_state"
             "$git_status"
             "$character"
           ];
+
+          hostname = {
+            ssh_only = false;
+          };
 
           directory = {
             style = accent;
@@ -36,9 +41,9 @@
           };
 
           git_branch = {
-            symbol = "[](${background-alt}) ";
+            symbol = "[](${background-alt}) ";
             style = "fg:${accent} bg:${background-alt}";
-            format = "on [$symbol$branch]($style)[](${background-alt}) ";
+            format = "on [$symbol$branch]($style)[](${background-alt}) ";
           };
         };
       };
