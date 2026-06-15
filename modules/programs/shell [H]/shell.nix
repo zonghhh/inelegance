@@ -1,6 +1,11 @@
-{ ... }: {
+{ inputs, ... }: {
   flake.modules.homeManager.shell = {
-    programs.zsh.enable = true;
+    imports = with inputs.self.modules.homeManager; [
+      zsh
+      eza
+      starship
+    ];
+
     programs.bash.enable = true;
   };
 }
