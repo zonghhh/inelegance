@@ -36,7 +36,7 @@
         firewall.enable = true;
       };
 
-      security.sudo.wheelNeedsPassword = false;
+      security.sudo.wheelNeedsPassword = true;
 
       environment.systemPackages = with pkgs; [
         git
