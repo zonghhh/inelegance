@@ -12,12 +12,19 @@
           add_newline = true;
           format = lib.concatStrings [
             "$nix_shell"
+            "$username"
+            "@"
             "$hostname"
             " • "
             "$directory"
             "$git_branch"
             "$character"
           ];
+
+          username = {
+            show_always = true;
+            format = "[$user]($style)";
+          };
 
           hostname = {
             ssh_only = false;
