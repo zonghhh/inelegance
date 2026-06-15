@@ -8,7 +8,7 @@
         enable = true;
         highlighters = [
           "main"
-          "bracket"
+          "brackets"
         ];
       };
 
