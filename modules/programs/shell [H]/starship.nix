@@ -16,13 +16,12 @@
             " • "
             "$directory"
             "$git_branch"
-            "$git_state"
-            "$git_status"
             "$character"
           ];
 
           hostname = {
             ssh_only = false;
+            format = "[$hostname]($style)";
           };
 
           directory = {
@@ -31,7 +30,7 @@
 
           character = {
             success_symbol = "[❯](${accent})";
-            error_symbol = "[❯](red)";
+            error_symbol = "[❯](${accent})";
           };
 
           nix_shell = {
