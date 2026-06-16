@@ -8,6 +8,7 @@ in
       shell
       ghostty
       nano
+      zen
     ];
 
     home.username = username;
