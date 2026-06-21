@@ -57,22 +57,22 @@
           "${mod}+7".action = focus-workspace 7;
           "${mod}+8".action = focus-workspace 8;
           "${mod}+9".action = focus-workspace 9;
-          "${mod}+Shift+1".action = move-column-to-workspace 1;
-          "${mod}+Shift+2".action = move-column-to-workspace 2;
-          "${mod}+Shift+3".action = move-column-to-workspace 3;
-          "${mod}+Shift+4".action = move-column-to-workspace 4;
-          "${mod}+Shift+5".action = move-column-to-workspace 5;
-          "${mod}+Shift+6".action = move-column-to-workspace 6;
-          "${mod}+Shift+7".action = move-column-to-workspace 7;
-          "${mod}+Shift+8".action = move-column-to-workspace 8;
-          "${mod}+Shift+9".action = move-column-to-workspace 9;
+          "${mod}+Shift+1".action.move-column-to-workspace = [ 1 ];
+          "${mod}+Shift+2".action.move-column-to-workspace = [ 2 ];
+          "${mod}+Shift+3".action.move-column-to-workspace = [ 3 ];
+          "${mod}+Shift+4".action.move-column-to-workspace = [ 4 ];
+          "${mod}+Shift+5".action.move-column-to-workspace = [ 5 ];
+          "${mod}+Shift+6".action.move-column-to-workspace = [ 6 ];
+          "${mod}+Shift+7".action.move-column-to-workspace = [ 7 ];
+          "${mod}+Shift+8".action.move-column-to-workspace = [ 8 ];
+          "${mod}+Shift+9".action.move-column-to-workspace = [ 9 ];
 
           # Utilities
           # NOTE: Noctalia's screenshot plugin is Hyprland-only — on Niri the
           # docs say to use the compositor's own built-in screenshot tool,
           # so this binds straight to niri's interactive screenshot action
           # rather than a noctalia-shell ipc call.
-          "${mod}+Shift+S".action = screenshot;
+          "${mod}+Shift+S".action.screenshot = [ ];
 
           # Locked Binds — brightness
           "XF86MonBrightnessUp" = {
@@ -100,6 +100,7 @@
         };
 
         # MISC — Niri's nearest equivalents to the hyprland general/decoration/misc block
+        prefer-no-csd = true;
         layout = {
           gaps = 8; # TODO: tune to taste, hyprland config had no explicit gap value
           border = {

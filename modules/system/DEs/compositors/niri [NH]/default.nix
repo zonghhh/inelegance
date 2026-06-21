@@ -5,7 +5,6 @@
     imports = with inputs.self.modules.nixos; [
       session
       greeter
-      inputs.niri.nixosModules.niri
     ];
 
     # https://github.com/sodiboo/niri-flake/blob/main/README.md

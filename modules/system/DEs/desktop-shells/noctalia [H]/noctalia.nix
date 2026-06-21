@@ -15,9 +15,6 @@
         # rationale as caelestia.systemd.enable — uwsm wires the target up.
         systemd = {
           enable = true;
-          # recommended whenever systemd.enable is on: apps Noctalia spawns
-          # would otherwise die when the service restarts (e.g. on update).
-          launch_apps_as_systemd_services = true;
         };
 
         settings = {
