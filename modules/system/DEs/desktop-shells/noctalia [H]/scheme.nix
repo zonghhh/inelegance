@@ -11,6 +11,7 @@
         };
       };
 
+      # TODO: write a more efficient version of this that doesn't involve polling
       home.activation.noctaliaWallpaperSync = config.lib.dag.entryAfter [ "writeBoundary" ] ''
         noctalia="${inputs.noctalia.packages.${osConfig.nixpkgs.hostPlatform.system}.default}/bin/noctalia"
         for i in $(seq 1 10); do

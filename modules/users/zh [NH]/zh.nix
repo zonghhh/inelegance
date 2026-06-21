@@ -15,7 +15,7 @@ in
     home.homeDirectory = "/home/${username}";
     home.stateVersion = "25.11";
 
-    # NOTE: profile picture. placed in ~/.face for caelestia to acces
+    # TODO: profile picture. placed in ~/.face for caelestia to access, check if noctalia has a pfp option to use this
     home.file.".face".source = inputs.self + "/assets/profile.jpg";
 
     programs.home-manager.enable = true;

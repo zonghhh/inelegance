@@ -18,16 +18,6 @@
           "${mod}+Space".action.spawn = noctalia "panel-toggle launcher";
           "${mod}+X".action.spawn = noctalia "panel-toggle session";
 
-          # NOTE: Hyprland's sidebar (notifications/quick-actions) and
-          # dashboard binds don't have distinct v5 equivalents — noctalia
-          # v5's panel set is launcher / session / clipboard / wallpaper /
-          # control-center, no separate "notifications" or "dashboard"
-          # panel. Picked the two closest-but-different options below so
-          # both keys do something useful; swap either for whichever of
-          # these you actually want once you've used the shell a bit:
-          #   - control-center  -> quick settings, audio/network/etc
-          #   - window-switcher -> Alt+Tab-style grid of open windows
-          #   - clipboard       -> clipboard history panel
           "${mod}+N".action.spawn = noctalia "panel-toggle control-center";
           "${mod}+D".action.spawn = noctalia "window-switcher";
 
@@ -37,7 +27,7 @@
           "${mod}+V".action = toggle-window-floating;
 
           # mouse
-          # NOTE: Niri binds Mod+LeftClick (move) and Mod+RightClick (resize)
+          # niri binds Mod+LeftClick (move) and Mod+RightClick (resize)
           # as built-in input behaviour, not as `binds` entries
 
           # Focus Windows
@@ -102,7 +92,7 @@
         # MISC — Niri's nearest equivalents to the hyprland general/decoration/misc block
         prefer-no-csd = true;
         layout = {
-          gaps = 8; # TODO: tune to taste, hyprland config had no explicit gap value
+          gaps = 8;
           border = {
             enable = true;
             width = 2;
