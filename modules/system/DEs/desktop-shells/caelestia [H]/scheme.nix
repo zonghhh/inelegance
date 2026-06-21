@@ -145,6 +145,7 @@
       };
 
       # apply the stylix-derived scheme each graphical login, so the shell stays in sync with the rest of the desktop's colours.
+      # TOFIX: buggy only work when running nixos-rebuild with switch, when ran with boot does not apply the scheme upon reboot.
       systemd.user.services.caelestia-scheme = {
         Unit = {
           Description = "Apply stylix-derived caelestia colour scheme";

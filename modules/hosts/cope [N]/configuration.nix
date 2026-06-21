@@ -3,7 +3,7 @@
     imports = with inputs.self.modules.nixos; [
       system-desktop
 
-      hyprland
+      niri
       systemd-boot
       bluetooth
     ];
