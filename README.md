@@ -15,6 +15,8 @@ For laptop:<br>
 ```services.upower.enable = true;```<br>
 ```services.power-profiles-daemon.enable = true;```
 
+Currently Caelestia config for scheme is semi-broken (scheme won't change if you run nixos-rebuild with boot instead of switch).
+
 ## Hardware-specific (not type-agnostic, import per-host)
 
 - `systemd-boot` — needs UEFI.
