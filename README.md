@@ -1,4 +1,4 @@
-This will be incredibly inelegant, i'm rebuilding my entire nixos configuration using flake-parts... heavy inspiration/copying/fork from/of Doc-Steve and Nixy.
+This will be incredibly inelegant, i'm rebuilding my entire nixos configuration using flake-parts... heavy inspiration/copying/fork from/of Doc-Steve and Nixy.<br>
 If I messed up pls @ me in discussions and we can take this privately.
 
 Folder naming: `[N]` NixOS, `[H]` home-manager, `[NH]` both.
