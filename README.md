@@ -1,4 +1,5 @@
 This will be incredibly inelegant, i'm rebuilding my entire nixos configuration using flake-parts... heavy inspiration/copying/fork from/of Doc-Steve and Nixy.
+If I messed up pls @ me in discussions and we can take this privately.
 
 Folder naming: `[N]` NixOS, `[H]` home-manager, `[NH]` both.
 
@@ -37,7 +38,10 @@ for update:<br>
 ```nix flake update```<br>
 ```sudo nixos-rebuild switch .#hostname -vL``` (-vL; verbose and print build logs)
 
-## Additional documenting
+## Commenting Convention?
 (TODO:) to-do...yes<br>
 (TOFIX:) i will fix it, someday...depends on if i really need it ahaha<br>
 (NOTE:) some things of note, yes i know it is a bad label...T_T
+
+## Disclaimers
+I do not own any of the things inside the `assets/` folder. If you want me to take something down @ me in the discussions of this repo.
