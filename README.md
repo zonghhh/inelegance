@@ -6,8 +6,8 @@ Folder naming: `[N]` NixOS, `[H]` home-manager, `[NH]` both.
 
 | Module | Status | Details |
 | :--- | :--- | :--- |
-| `modules/system/DEs/desktop-shells/caelestia [H]` | 🔴 Broken | scheme won't change if you run nixos-rebuild with boot instead of switch, I'm not using caelestia rn so its backlog |
-| `modules/system/DEs/compositors/hyprland [NH]` | 🟡 Incomplete | Keybind for addmaster & removemaster won't work, using Niri rn so its backlog |
+| `modules/system/DEs/desktop-shells/caelestia [H]` | 🔴&nbsp;Broken | scheme won't change if you run nixos-rebuild with boot instead of switch, I'm not using caelestia rn so its backlog |
+| `modules/system/DEs/compositors/hyprland [NH]` | 🟡&nbsp;Incomplete | Keybind for addmaster & removemaster won't work, using Niri rn so its backlog |
 
 ## System types (layered)
 
