@@ -8,6 +8,6 @@
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     hardware.graphics.enable = true;
-    services.upower.enable = true; #  NOTE: laptop
+    services.upower.enable = true; # NOTE: laptop
   };
 }

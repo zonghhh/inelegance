@@ -23,8 +23,8 @@
 
           # Windows
           "${mod}+Q".action = close-window;
-          "${mod}+F".action = maximize-column;  # maximises the window
-          "${mod}+Shift+F".action = fullscreen-window;  # fullscreen
+          "${mod}+F".action = maximize-column; # maximises the window
+          "${mod}+Shift+F".action = fullscreen-window; # fullscreen
           "${mod}+V".action = toggle-window-floating;
           "${mod}+Shift+H".action = reset-window-height;
 

@@ -1,7 +1,12 @@
 { inputs, ... }: {
   # bridges stylix -> noctalia colours.
   flake.modules.homeManager.noctalia =
-    { pkgs, config, osConfig, ... }:
+    {
+      pkgs,
+      config,
+      osConfig,
+      ...
+    }:
     {
       programs.noctalia.settings = {
         wallpaper.enabled = true;
