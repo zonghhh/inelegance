@@ -16,7 +16,7 @@ in
     home.stateVersion = "25.11";
 
     # TODO: profile picture. placed in ~/.face for caelestia to access, check if noctalia has a pfp option to use this
-    home.file.".face".source = inputs.self + "/assets/profile.jpg";
+    home.file."pfp.jpg".source = inputs.self + "/assets/profile_doflamingo.jpg";
 
     programs.home-manager.enable = true;
   };
