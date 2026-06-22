@@ -27,5 +27,7 @@
       niri
       noctalia
     ];
-  };
+  }; 
+
+  flake.modules.homeManager.niri = { imports = [ inputs.niri.homeModules.niri ]; };
 }
