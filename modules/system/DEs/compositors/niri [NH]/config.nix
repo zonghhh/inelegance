@@ -26,6 +26,7 @@
           "${mod}+F".action = maximize-column;  # maximises the window
           "${mod}+Shift+F".action = fullscreen-window;  # fullscreen
           "${mod}+V".action = toggle-window-floating;
+          "${mod}+Shift+H".action = reset-window-height;
 
           # mouse
           # niri binds Mod+LeftClick (move) and Mod+RightClick (resize)
