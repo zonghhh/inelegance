@@ -3,28 +3,20 @@
   flake.modules.homeManager.noctalia =
     {
       pkgs,
-      config,
       osConfig,
       ...
     }:
     {
       programs.noctalia.settings = {
-        wallpaper.enabled = true;
+        wallpaper = {
+          enabled = true;
+          default.path = "${osConfig.stylix.image}";
+        };
+  
         theme = {
           source = "wallpaper";
           wallpaper_scheme = "m3-content"; # TODO: try the other generators (vibrant, muted, ...) and see what reads best against this wallpaper
         };
       };
-
-      # TODO: write a more efficient version of this that doesn't involve polling
-      home.activation.noctaliaWallpaperSync = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-        noctalia="${inputs.noctalia.packages.${osConfig.nixpkgs.hostPlatform.system}.default}/bin/noctalia"
-        for i in $(seq 1 10); do
-          if $DRY_RUN_CMD "$noctalia" msg wallpaper-set "${osConfig.stylix.image}"; then
-            break
-          fi
-          sleep 1
-        done
-      '';
     };
 }

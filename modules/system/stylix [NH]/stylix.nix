@@ -8,7 +8,7 @@
       polarity = "dark";
 
       # wallpaper.
-      image = inputs.self + "/assets/wallpapers/wallpaper_stellar-blade.png";
+      image = inputs.self + "/assets/wallpapers/wallpaper_sakura.png";
 
       targets.console.enable = false; # theming not applied to things like greeter and boot sequence?
       opacity.terminal = 0.80; # terminal translucency

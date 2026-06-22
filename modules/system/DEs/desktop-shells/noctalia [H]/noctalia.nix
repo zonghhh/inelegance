@@ -1,6 +1,6 @@
 { inputs, ... }: {
   flake.modules.homeManager.noctalia =
-    { pkgs, osConfig, ... }:
+    { pkgs, ... }:
     let
       system = pkgs.stdenv.hostPlatform.system;
     in
@@ -22,8 +22,12 @@
           # noctalia's colour extraction at the stylix wallpaper — kept out
           # of this file to avoid two modules both trying to set theme.source.
           theme.mode = "dark";
+          weather.enabled = true;
 
-          services.weatherLocation = osConfig.var.weatherLocation;
+          location = {
+            auto_locate = true;
+            weather = true;
+          };
         };
       };
     };
