@@ -2,6 +2,13 @@ This will be incredibly inelegant, i'm rebuilding my entire nixos configuration 
 
 Folder naming: `[N]` NixOS, `[H]` home-manager, `[NH]` both.
 
+### Project Status
+
+| Module | Status | Details |
+| :--- | :--- | :--- |
+| `modules/system/DEs/desktop-shells/caelestia [H]` | 🔴 Broken | scheme won't change if you run nixos-rebuild with boot instead of switch, I'm not using caelestia rn so its backlog |
+| `modules/system/DEs/compositors/hyprland [NH]` | 🟡 Incomplete | Keybind for addmaster & removemaster won't work, using Niri rn so its backlog |
+
 ## System types (layered)
 
 - `system-minimal` — base. headless.
@@ -14,8 +21,6 @@ system-*, `var.{hostname,timezone,locale,keyboardLayout}`, hardware.nix + hardwa
 For laptop:<br>
 ```services.upower.enable = true;```<br>
 ```services.power-profiles-daemon.enable = true;```
-
-Currently Caelestia config for scheme is semi-broken (scheme won't change if you run nixos-rebuild with boot instead of switch).
 
 ## Hardware-specific (not type-agnostic, import per-host)
 
