@@ -60,10 +60,6 @@
           "${mod}+Shift+9".action.move-column-to-workspace = [ 9 ];
 
           # Utilities
-          # NOTE: Noctalia's screenshot plugin is Hyprland-only — on Niri the
-          # docs say to use the compositor's own built-in screenshot tool,
-          # so this binds straight to niri's interactive screenshot action
-          # rather than a noctalia-shell ipc call.
           "${mod}+Shift+S".action.screenshot = [ ];
 
           # Locked Binds — brightness
@@ -91,7 +87,7 @@
           };
         };
 
-        # MISC — Niri's nearest equivalents to the hyprland general/decoration/misc block
+        # MISC
         prefer-no-csd = true;
         layout = {
           gaps = 8;
@@ -101,12 +97,9 @@
             active.color = "#${config.lib.stylix.colors.base0D}";
             inactive.color = "transparent"; # niri's csscolorparser accepts named colors
           };
-          # TOFIX: Niri has no per-window opacity/rounding option in settings.nix
-          # as of writing (rounding ~ geometry-corner-radius is a window-rule,
-          # not a global layout knob); window rules can target app-ids if needed.
         };
 
-        hotkey-overlay.skip-at-startup = true; # closest analogue to disable_hyprland_logo/splash
+        hotkey-overlay.skip-at-startup = true;
       };
     };
 }

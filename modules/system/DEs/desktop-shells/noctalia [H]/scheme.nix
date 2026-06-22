@@ -14,6 +14,7 @@
         };
   
         theme = {
+          mode = "dark";
           source = "wallpaper";
           wallpaper_scheme = "m3-content"; # TODO: try the other generators (vibrant, muted, ...) and see what reads best against this wallpaper
         };
