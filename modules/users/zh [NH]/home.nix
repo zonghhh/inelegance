@@ -7,6 +7,7 @@ in
     imports = with inputs.self.modules.homeManager; [
       system-desktop
       ghostty
+      zen
     ];
 
     home.username = username;

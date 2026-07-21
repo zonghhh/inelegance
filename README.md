@@ -37,7 +37,7 @@ if new inputs:
 
 for update:<br>
 ```nix flake update```<br>
-```sudo nixos-rebuild switch .#hostname -vL``` (-vL; verbose and print build logs)
+```sudo nixos-rebuild switch --flake .#hostname -vL``` (-vL; verbose and print build logs)
 
 ## Commenting Convention?
 (TODO:) to-do...yes<br>

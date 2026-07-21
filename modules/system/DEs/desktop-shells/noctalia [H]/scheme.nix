@@ -3,7 +3,8 @@
   flake.modules.homeManager.noctalia =
     {
       pkgs,
-      osConfig,
+      osConfig, # TOFIX: fix stylix.nix so we dont have to use OsConfig
+      lib,
       ...
     }:
     {
@@ -15,7 +16,7 @@
   
         theme = {
           mode = "dark";
-          source = "wallpaper";
+          source = lib.mkForce "wallpaper"; # TOFIX: temporary fix for upstream issue where source is written in stylix module.
           wallpaper_scheme = "m3-content"; # TODO: try the other generators (vibrant, muted, ...) and see what reads best against this wallpaper
         };
       };

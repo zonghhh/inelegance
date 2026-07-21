@@ -38,7 +38,6 @@
       system-default
       shell
       nano
-      zen
     ];
   };
 }
