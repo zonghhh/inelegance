@@ -20,6 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     preservation.url = "github:nix-community/preservation";
+    stylix.url = "github:danth/stylix";
 
     # tracked software packages
     zen-browser-flake.url = "github:0xc000022070/zen-browser-flake";
@@ -34,5 +35,31 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  }
+  };
+
+  outputs = inputs@{ nixpkgs, ... }: {
+    nixosConfigurations = {
+      lappy =
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./overlays
+            ./hosts/lappy/configuration.nix
+            
+            inputs.sops-nix.nixosModules.default
+            inputs.home-manager.nixosModules.home-manager
+            inputs.disko.nixosModules.default
+            inputs.lanzaboote.nixosModules.lanzaboote
+            inputs.preservation.nixosModules.preservation # TODO: check attr names looks like default would just map to preservation
+            inputs.stylix.nixosModules.stylix
+
+            inputs.noctalia.nixosModules.default
+            inputs.niri-flake.nixosModules.niri
+
+            # hardware-specific modules
+            inputs.nixos-hardware.nixosModules.common-cpu-amd-default
+          ];
+        };
+    };
+  };
 }
