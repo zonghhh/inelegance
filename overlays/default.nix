@@ -1,6 +1,6 @@
-{ inputs, ... }: {  
+{ inputs, ... }: {
   nixpkgs.overlays = [
-    
+
     # Overlay 1: Use `self` and `super` to express
     # the inheritance relationship
     # (self: super: {

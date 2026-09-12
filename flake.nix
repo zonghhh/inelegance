@@ -1,5 +1,5 @@
 {
-  description = ''Inelegant setup, but it works.'';
+  description = "Inelegant setup, but it works.";
 
   inputs = {
     # damentals
@@ -37,20 +37,37 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, ... }: {
-    nixosConfigurations = {
-      lappy =
-        nixpkgs.lib.nixosSystem {
+  outputs =
+    inputs@{ self, nixpkgs, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
+      checks.${system}.pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          nixfmt.enable = true;
+        };
+      };
+
+      devShells.${system}.default = pkgs.mkShell {
+        inherit (self.checks.${system}.pre-commit-check) shellHook;
+        buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+      };
+      
+      nixosConfigurations = {
+        lappy = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             ./overlays
             ./hosts/lappy/configuration.nix
-            
+
             inputs.sops-nix.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             inputs.disko.nixosModules.default
             inputs.lanzaboote.nixosModules.lanzaboote
-            inputs.preservation.nixosModules.preservation # TODO: check attr names looks like default would just map to preservation
+            inputs.preservation.nixosModules.preservation
             inputs.stylix.nixosModules.stylix
 
             inputs.noctalia.nixosModules.default
@@ -60,6 +77,6 @@
             inputs.nixos-hardware.nixosModules.common-cpu-amd-default
           ];
         };
+      };
     };
-  };
 }
